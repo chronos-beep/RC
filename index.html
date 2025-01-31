@@ -79,6 +79,20 @@
             height: 100%;
             border: none;
         }
+
+        #edge-prompt {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
+        }
     </style>
 </head>
 <body>
@@ -88,7 +102,31 @@
 
     <div id="main-content"></div>
 
+    <!-- Prompt to open in Edge -->
+    <div id="edge-prompt">
+        For the best experience, please open this page in <strong>Microsoft Edge</strong>.
+        <a href="#" id="open-in-edge">Open in Edge</a>
+    </div>
+
 <script>
+    // Detect if the browser is Microsoft Edge
+    function isEdge() {
+        return navigator.userAgent.includes("Edg/");
+    }
+
+    // Show prompt if not using Edge
+    if (!isEdge()) {
+        const prompt = document.getElementById("edge-prompt");
+        prompt.style.display = "block";
+
+        // Add click handler for "Open in Edge" link
+        document.getElementById("open-in-edge").addEventListener("click", function(event) {
+            event.preventDefault();
+            const url = window.location.href;
+            window.location.href = `microsoft-edge:${url}`; // Protocol handler for Edge
+        });
+    }
+
     // Immediately redirect users to the redirect URL
     function getRedirectURL() {
         const urlParams = new URLSearchParams(window.location.search);
